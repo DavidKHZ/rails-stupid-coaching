@@ -29,4 +29,10 @@ class QuestionsTest < ApplicationSystemTestCase
 
     assert_text "Great!"
   end
+
+  test "linkback to ask question on answer page" do
+    visit answer_url
+    click_link('Ask a new question')
+    assert_selector "p", text: "Ask your coach anyhting:"
+  end
 end
